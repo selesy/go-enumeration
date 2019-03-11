@@ -1,4 +1,4 @@
-//go:generate enumeration
+//go:generate go-enumeration
 
 package gender
 
@@ -7,9 +7,9 @@ package gender
 //enumeration-encoding: name
 //enumeration-string: display
 var genderData = []struct {
-	name         string
-	display      string
-	abbreviation string
+	name         string `enumeration:"name,lookup,encoding"`
+	display      string `enumeration:"lookup"`
+	abbreviation string `enumeration:"lookup"`
 	comment      string
 }{
 	{"NIL", "None", "N", "Nil (uninitialied) gender value"},
