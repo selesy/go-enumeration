@@ -8,7 +8,7 @@ package gender
 //enumeration-string: display
 var genderData = []struct {
 	name         string `enumeration:"name,lookup,encoding"`
-	display      string `enumeration:"lookup"`
+	display      string `enumeration:"lookup,string"`
 	abbreviation string `enumeration:"lookup"`
 	comment      string
 }{
