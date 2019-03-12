@@ -70,9 +70,15 @@ func main() {
 //
 
 func varDecl(n ast.Node) (*ast.ValueSpec, bool) {
+	log.Trace("-> varDecl(Node)")
+
 	g, ok := n.(*ast.GenDecl)
 	if !ok || g.Tok != token.VAR || len(g.Specs) < 1 {
 		return nil, false
+	}
+	log.Debug("GenDecl: ", g)
+	for _, c := range g.Doc.List {
+		log.Debug("  Comment: ", c)
 	}
 
 	if len(g.Specs) > 1 {
@@ -90,6 +96,8 @@ func varDecl(n ast.Node) (*ast.ValueSpec, bool) {
 		return nil, false
 	}
 
+	log.Debug("ValueSpec: ", s)
+	log.Trace("varDecl(Node) ->")
 	return s, true
 }
 
@@ -153,3 +161,6 @@ func tags(f *ast.Field) {
 // fmt.Println("     ArrayType:", arrType)
 // fmt.Println("     ArrayType element:", arrType.Elt)
 //fmt.Println("     ", arrayStructType)
+
+const accessorTemplate = `
+func (`
