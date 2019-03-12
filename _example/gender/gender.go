@@ -2,8 +2,10 @@
 
 package gender
 
-//enumeration: gender
-//enumeration-lookup: name, display, abbreviation
+//enumeration: Gender
+//enumeration-lookup: name
+//enumeration-lookup: display
+//enumeration-lookup: abbreviation
 //enumeration-encoding: name
 //enumeration-string: display
 var genderData = []struct {
