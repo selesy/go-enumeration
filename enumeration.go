@@ -192,10 +192,12 @@ func generate(w io.Writer) {
 			acc{
 				Nam: "Name",
 				Typ: "string",
+				Doc: "Name returns the programmatic string representation of Gender.",
 			},
 			acc{
 				Nam: "Display",
 				Typ: "string",
+				Doc: "Display returns the human-readable string representation of Gender.",
 			},
 			acc{
 				Nam: "Abbreviation",
@@ -222,7 +224,11 @@ const enumTemplate = `
 // Go generate command
 
 type {{ $.Nam }} int
+
 {{ range $acc := $.Acc }}
+{{- if $acc.Doc }}
+//{{ $acc.Doc }}
+{{ end -}}
 func (e {{ $.Nam }}) {{ $acc.Nam -}} () {{ $acc.Typ }} {
 	return {{ $.Dat -}} [e] {{- .Nam -}}
 }
