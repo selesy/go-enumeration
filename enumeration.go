@@ -17,6 +17,7 @@ const (
 )
 
 type enum struct {
+	Pkg string
 	Nam string
 	Fil string
 	Dat string
@@ -25,6 +26,7 @@ type enum struct {
 }
 
 type acc struct {
+	Idx string
 	Nam string
 	Typ string
 	Doc string
@@ -228,8 +230,9 @@ func (e {{ $.Nam }}) {{ $acc.Nam -}} () {{ $acc.Typ }} {
 func (e {{ $.Nam }}) Ordinal() int {
 	return int(e)
 }
-
+{{ if $.Str }}
 func (e {{ $.Nam }}) String() string {
 	return e. {{- $.Str -}} ()
 }
+{{ end }}
 `
