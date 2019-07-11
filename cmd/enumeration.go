@@ -98,8 +98,10 @@ func varDecl(n ast.Node) (*ast.ValueSpec, bool) {
 		return nil, false
 	}
 	log.Debug("GenDecl: ", g)
-	for _, c := range g.Doc.List {
-		log.Debug("  Comment: ", c)
+	if g.Doc != nil {
+		for _, c := range g.Doc.List {
+			log.Debug("  Comment: ", c)
+		}
 	}
 
 	if len(g.Specs) > 1 {
