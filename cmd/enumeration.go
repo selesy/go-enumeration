@@ -8,7 +8,7 @@ import (
 	"os"
 	"text/template"
 
-	"github.com/selesy/go-genutil/genutil"
+	genutil "github.com/selesy/go-genutil/pkg"
 	"github.com/sirupsen/logrus"
 )
 
