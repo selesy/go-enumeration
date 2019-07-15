@@ -33,7 +33,9 @@ the inversion between the keys and the values):
   }
 
 enumeration: The "enumeration" directive can be used to specify the Type
-name of the generated enumeration.  The type will be defined
+name of the generated enumeration.  The type will be defined as:
+
+  type <name> int
 
 enumeration-name: The "enumeration-name" directive is used to indication
 which field will be used to generate each enumeration value's constant
@@ -43,7 +45,7 @@ fail if there is no implicit or explicit name field selected.
 
 enumeration-ordinal:
 
-enumeration-zero
+enumeration-zero:
 
 enumeration-display:
 
@@ -53,7 +55,9 @@ used to look up an enumeration's value must have unique values.  More than
 one field may be selected as lookup values.  The default behavior is that
 only the name field (see enumeration-name above) is included for lookup.
 
-enumeration-string:
+enumeration-string: The "enumeration-string" directive is used to indicate
+which of the value's lookup fields should be used to produce a human read-
+able String() function.
 
 enumeration-abbreviation:
 
